@@ -1,6 +1,6 @@
 import urllib.parse
 import urllib.request
-import binascii
+import codecs
 
 uri = 'http://www.xmfg.gov.cn/webinfo/allSaleState.aspx?flag=3'
 
@@ -42,5 +42,5 @@ encodedFields = encodedFields.encode('ascii')
 req = urllib.request.Request(uri, encodedFields, headers)
 response = urllib.request.urlopen(req)
 data = response.read().decode("utf-8")
-f = open("..\\output\\test.htm","w");
+f = codecs.open("..\\output\\test.htm","w", "utf-8");
 f.write(data);
